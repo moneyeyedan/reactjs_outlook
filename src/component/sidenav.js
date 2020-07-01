@@ -17,8 +17,15 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {withRouter } from 'react-router-dom';
-import First from './first';
-import Second from './second';
+import First from './notes';
+import Second from './attachment';
+import Third from './stage history';
+import Competitors from './competitors';
+import Open_activities from './open activities';
+import Closed_activities from './closed activities';
+import Contact_roles from './contact roles';
+import emails from './emails';
+import Emails from './emails';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -69,7 +76,31 @@ function ResponsiveDrawer(props) {
 
       } else if (props.match.path==='/second'){
           return <Second />
+      }else if (props.match.path==='/third')
+      {
+        return <Third />
       }
+      else if (props.match.path==='/competitors')
+      {
+        return <Competitors />
+      }
+      else if (props.match.path==='/open activities')
+      {
+        return <Open_activities />
+      }
+      else if (props.match.path==='/closed activities')
+      {
+        return <Closed_activities />
+      }
+      else if (props.match.path==='/contact roles')
+      {
+        return <Contact_roles />
+      }
+      else if (props.match.path==='/emails')
+      {
+        return <Emails />
+      }
+  
   }
   const drawer = (
     <div>
@@ -77,11 +108,31 @@ function ResponsiveDrawer(props) {
       <Divider />
       <List>
       <ListItem button onClick={()=>props.history.push('/first')}>
-            <ListItemText primary="first" />
+            <ListItemText primary="Notes" />
           </ListItem>
           <ListItem button onClick={()=>props.history.push('/second')}>
-            <ListItemText primary="second" />
+            <ListItemText primary="Attachments" />
           </ListItem>
+          <ListItem button onClick={()=>props.history.push('/third')}>
+            <ListItemText primary="Stage History" />
+          </ListItem>
+          <ListItem button onClick={()=>props.history.push('/competitors')}>
+            <ListItemText primary="Competitors" />
+          </ListItem>
+          <ListItem button onClick={()=>props.history.push('/open activities')}>
+            <ListItemText primary="Open Activities" />
+          </ListItem>
+          <ListItem button onClick={()=>props.history.push('/closed activities')}>
+            <ListItemText primary="Closed Activities " />
+          </ListItem>
+          <ListItem button onClick={()=>props.history.push('/contact roles')}>
+            <ListItemText primary="Contact Roles" />
+          </ListItem>
+          <ListItem button onClick={()=>props.history.push('/emails')}>
+            <ListItemText primary="Emails " />
+          </ListItem>
+         
+
       </List>
       {/* <Divider />
       <List>
@@ -112,7 +163,7 @@ function ResponsiveDrawer(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Responsive drawer
+           
           </Typography>
         </Toolbar>
       </AppBar>
